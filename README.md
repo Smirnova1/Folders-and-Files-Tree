@@ -13,9 +13,11 @@ Documentation for the framework can be found on the [Laravel documentation](http
 ###### For appropriate work of the program you need:
 
 1. Create an empty Database `CREATE DATABASE yourdatabasename`
-2. Run: `git clone https://github.com/Smirnova1/Folders-and-Files-Tree.git`
-3. Generate .env file `cp env.example .env` (for Linux and MAC) `copy .env.example .env` (for Windows)
-4. Fill .env file:
+2. Run: `git clone https://github.com/Smirnova1/Folders-and-Files-Tree.git` 
+    *Go to Folders-and-Files-Tree `cd Folders-and-Files-Tree`
+3. Generate .env file `cp .env.example .env` (for Linux and MAC) `copy .env.example .env` (for Windows)
+4. Run the commands `composer install`
+5. Fill .env file:
     * `APP_KEY=` <p>for key generation `php artisan key:generate`</p>
     * Database:
      ```
@@ -23,7 +25,6 @@ Documentation for the framework can be found on the [Laravel documentation](http
         DB_USERNAME=yourusername
         DB_PASSWORD=yourpassword
       ```
-5. Run the commands `composer install`
 6. Run the command  `php artisan migrate` to complete the database with tables.
 
 ###### Use the command `php artisan serve` to start Folders-and-Files-Tree on the local host.
