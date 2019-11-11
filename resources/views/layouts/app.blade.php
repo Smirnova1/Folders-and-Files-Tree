@@ -16,10 +16,6 @@
     <div class="container-fluid">
         @include('header')
 
-        <main class=".bg-transparent">
-            @yield('content')
-        </main>
-
         @if (session('success'))
             <div class="alert alert-success">
                 {{ session('success') }}
@@ -31,6 +27,10 @@
                 {{ session('error') }}
             </div>
         @endif
+
+        <main class="bg-transparent">
+            @yield('content')
+        </main>
 
     </div>
 

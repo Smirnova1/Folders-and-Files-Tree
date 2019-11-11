@@ -35,6 +35,7 @@ class IndexController extends Controller
     {
         $folder = FileFolder::findOrFail($id);
         $treeArray = json_decode($folder->folder_json, true);
+
         return view('edit', compact('folder', 'treeArray'));
     }
 
@@ -50,8 +51,10 @@ class IndexController extends Controller
                 ['folder_path'=>$requestData],
                 ['folder_path' =>$requestData, 'folder_json' => $this->tree($requestData)]);
             $folder->save();
+
             return redirect(route('create'))->with('success', "Data saved successfully!");
         } catch (Exception $e) {
+
             return redirect()->back()->with('error', $e->getMessage());
         }
 
@@ -70,8 +73,10 @@ class IndexController extends Controller
             $folder->folder_path = $requestData['f-path'];
             $folder->folder_json = $requestData['result'];
             $folder->save();
+
             return redirect(route('index'))->with('success', "Data saved successfully!");
         } catch (Exception $e) {
+
             return redirect()->back()->with('error', $e->getMessage());
         }
 
@@ -98,8 +103,10 @@ class IndexController extends Controller
         try {
             $tree = FileFolder::findOrFail($id);
             $tree->delete();
+
             return redirect(route('index'))->with('success', "Data deleted!");
         } catch (Exception $e) {
+
             return redirect()->back()->with('error', $e->getMessage());
         }
     }

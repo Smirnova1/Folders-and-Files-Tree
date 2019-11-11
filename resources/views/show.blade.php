@@ -1,6 +1,5 @@
 @extends('layouts.app')
 @section('content')
-
     <a href = '{{url('/path/' . $tree->id . '/edit')}}'>
         <button class="btn btn-info mb-3" type="button">
             EDIT

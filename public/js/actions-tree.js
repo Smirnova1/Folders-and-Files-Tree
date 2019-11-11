@@ -2,7 +2,6 @@ $(document).ready(function () {
     var tree = $('#tree-container').jstree({
         'core' : {
             'check_callback': true,
-            'dataType': "json"
         },
         "plugins": ["types", "contextmenu", "json_data"],
         "contextmenu":{
@@ -39,8 +38,6 @@ $(document).ready(function () {
     });
     $('#save').on('click', function(e, data) {
         var json = $('#tree-container').jstree(true).get_json(json, {no_id:true});
-        console.log(JSON.stringify(json));
-
         document.getElementById("result").value =JSON.stringify(json);
     })
 });
