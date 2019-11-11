@@ -23,7 +23,7 @@
         @endif
 
         @if (session('error'))
-            <div class="alert alert-danger" role="alert">
+            <div class="alert alert-danger">
                 {{ session('error') }}
             </div>
         @endif
@@ -40,5 +40,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jstree/3.2.1/jstree.min.js"></script>
     <script src="{{asset('js/actions-tree.js')}}"></script>
+    <script src="{{asset('js/save-tree.js')}}"></script>
 </body>
 </html>

@@ -15,7 +15,7 @@
                 <input type="text" hidden id="result" name="result">
             </div>
         </form>
-        <input type="hidden" id="json" value="{{$folder->folder_json}}">
+
         <span class="font-weight-bold">Right click on the folder or file to edit</span>
         <div id="tree-container">
             <ul data-jstree='{"icon":"//jstree.com/tree.png"}'>

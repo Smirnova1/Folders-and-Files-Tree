@@ -50,6 +50,7 @@ class IndexController extends Controller
             $folder = FileFolder::firstOrNew(
                 ['folder_path'=>$requestData],
                 ['folder_path' =>$requestData, 'folder_json' => $this->tree($requestData)]);
+
             $folder->save();
 
             return redirect(route('create'))->with('success', "Data saved successfully!");

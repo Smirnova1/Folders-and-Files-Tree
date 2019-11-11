@@ -14,7 +14,7 @@ Documentation for the framework can be found on the [Laravel documentation](http
 
 1. Create an empty Database `CREATE DATABASE yourdatabasename`
 2. Run: `git clone https://github.com/Smirnova1/Folders-and-Files-Tree.git` 
-    *Go to Folders-and-Files-Tree `cd Folders-and-Files-Tree`
+    * Go to Folders-and-Files-Tree `cd Folders-and-Files-Tree`
 3. Generate .env file `cp .env.example .env` (for Linux and MAC) `copy .env.example .env` (for Windows)
 4. Run the commands `composer install`
 5. Fill .env file:
