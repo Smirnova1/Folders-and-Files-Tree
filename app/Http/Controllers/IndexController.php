@@ -9,17 +9,28 @@ use Symfony\Component\Finder\Iterator\RecursiveDirectoryIterator;
 
 class IndexController extends Controller
 {
+    /**
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function index()
     {
         $allFolders = FileFolder::all();
+
         return view('index', compact('allFolders'));
     }
 
+    /**
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function create()
     {
         return view('create');
     }
 
+    /**
+     * @param $id
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function edit($id)
     {
         $folder = FileFolder::findOrFail($id);
@@ -27,6 +38,10 @@ class IndexController extends Controller
         return view('edit', compact('folder', 'treeArray'));
     }
 
+    /**
+     * @param Request $request
+     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
+     */
     public function store(Request $request)
     {
         try {
@@ -42,6 +57,11 @@ class IndexController extends Controller
 
     }
 
+    /**
+     * @param Request $request
+     * @param $id
+     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
+     */
     public function update(Request $request, $id)
     {
         try {
@@ -57,6 +77,10 @@ class IndexController extends Controller
 
     }
 
+    /**
+     * @param $id
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function show($id)
     {
         $tree = FileFolder::findOrFail($id);
@@ -65,6 +89,10 @@ class IndexController extends Controller
         return view('show', compact('treeArray', 'tree'));
     }
 
+    /**
+     * @param $id
+     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
+     */
     public function destroy($id)
     {
         try {
@@ -76,6 +104,10 @@ class IndexController extends Controller
         }
     }
 
+    /**
+     * @param $folder_path
+     * @return false|string
+     */
     private function tree($folder_path)
     {
         $pathToFile = new \RecursiveDirectoryIterator($folder_path);
@@ -97,11 +129,6 @@ class IndexController extends Controller
         $json = json_encode($treeArray);
 
         return $json;
-    }
-
-    public function ajax($id)
-    {
-        $folder = FileFolder::findOrFail($id);
     }
 }
 
